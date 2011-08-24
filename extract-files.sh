@@ -18,44 +18,7 @@ DEVICE=supersonic
 
 mkdir -p ../../../vendor/htc/$DEVICE/proprietary
 
-adb pull /system/bin/akmd ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/snd8k ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/sound8k ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/AdieHWCodecSetting.csv ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/AudioBTID.csv ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/TPA2018.csv ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/WPDB.zip ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/firmware/Supersonic_20100204_Sprint_Jack_324016_v2.acdb ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/firmware/default.acdb ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/firmware/yamato_pfp.fw ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/firmware/yamato_pm4.fw ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/lib/egl/libEGL_adreno200.so ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/lib/egl/libGLESv1_CM_adreno200.so ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/lib/egl/libGLESv2_adreno200.so ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/lib/egl/libq3dtools_adreno200.so ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/lib/libOmxVdec.so ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/lib/libcamera.so ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/lib/libgsl.so ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/lib/libhtc_acoustic.so ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/lib/libhtc_ril.so ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/lib/liboemcamera.so ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/wimaxDumpKmsg ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/apph ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/wimaxDumpLogcat ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/setWiMAXPropDaemond ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/wimax_mtd ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/sequansd ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/getWiMAXPropDaemond ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/wimaxDumpLastKmsg ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/wimaxDhcpRenew ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/wimaxDhcpRelease ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/wimaxAddRoute ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/wimax/sequansd/DefaultTree.xml ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/wimax/sequansd/sequansd_app.xml ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/wimax/dhcp/wimaxDhcp.conf ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/ipd ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/ip ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/framework/wimax-api.jar ../../../vendor/htc/$DEVICE/proprietary
+cp proprietary/* ../../../vendor/htc/$DEVICE/proprietary
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g > ../../../vendor/htc/$DEVICE/$DEVICE-vendor-blobs.mk
 # Copyright (C) 2010 The Android Open Source Project
@@ -95,6 +58,7 @@ PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/libGLESv1_CM_adreno200.so:/system/lib/egl/libGLESv1_CM_adreno200.so \\
     vendor/htc/__DEVICE__/proprietary/libGLESv2_adreno200.so:/system/lib/egl/libGLESv2_adreno200.so \\
     vendor/htc/__DEVICE__/proprietary/libq3dtools_adreno200.so:/system/lib/egl/libq3dtools_adreno200.so \\
+    vendor/htc/__DEVICE__/proprietary/gps.supersonic.so:/system/lib/hw/gps.supersonic.so \\
     vendor/htc/__DEVICE__/proprietary/libOmxVdec.so:/system/lib/libOmxVdec.so \\
     vendor/htc/__DEVICE__/proprietary/libcamera.so:/system/lib/libcamera.so \\
     vendor/htc/__DEVICE__/proprietary/libgsl.so:/system/lib/libgsl.so \\
