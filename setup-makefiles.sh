@@ -38,7 +38,6 @@ mkdir -p ../../../vendor/htc/$DEVICE
 # Live wallpaper packages
 PRODUCT_PACKAGES := \\
     LiveWallpapersPicker \\
-    MagicSmokeWallpapers \\
     librs_jni
 
 # Publish that we support the live wallpaper feature.
